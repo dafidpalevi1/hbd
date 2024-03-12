@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ucapan Selamat Ulang Tahun</title>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
+    <style>
+        body {
+            background-image: url("https://i.postimg.cc/pLd7XMrW/wallpaper.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            font-family: 'Shippori Antique', sans-serif;
+            padding-bottom: 50px; /* Menambah padding bottom agar footer tidak mengambang */
+        }
+        #konten {
+            position: relative;
+            text-align: center;
+            color: #fff;
+            padding-top: 50px;
+        }
+        #fotoloveu {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .catatan {
+            margin-top: 20px;
+            font-size: 20px;
+            line-height: 1.5;
+            color: black; /* Mengubah warna abu-abu menjadi hitam */
+            display: none; /* Menyembunyikan teks catatan */
+        }
+        .button {
+            display: inline-block;
+            background-color: #003EFF;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #001eaf;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="konten">
+    <div id="fotoloveu">
+        <div class="image">
+            <img src="https://i.postimg.cc/Rhzfr0FG/hbd.gif" id="animasi" width="130px" height="130px" alt="Birthday GIF">
+        </div>
+    </div>
+    <p class='catatan' id='koteks'>
+        <marquee scrollamount="8" id="marq">
+            Yeay makasih ya 😁 Kapan nih ditraktirinnya? 😊 Candaa candaa ☺️ HBD yaa 🎂🎂🎂
+        </marquee>
+    </p>
+    <!-- Tombol WA -->
+    <div id="tombWA"><a class='button' href="https://api.whatsapp.com/send?phone=62895638066066&text=Halo,%20selamat%20ulang%20tahun!%20🎉">Kirim Pesan</a></div>
+</div>
+
+<footer>
+    Dafid SEO
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+<script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script>
+<script>
+    const swals = Swal.mixin({
+        backdrop: 'rgba(0,0,123,0.4)',
+        confirmButtonColor: '#003EFF',
+        cancelButtonColor: '#FF0040',
+        allowOutsideClick: false,
+    });
+
+    async function mulai() {
+        var {value: nama} = await swals.fire({
+            title: 'Masukkan Nama kamu?',
+            input: 'text',
+            confirmButtonText: 'Lanjut',
+            showCancelButton: false,
+        });
+
+        if (nama && nama.length < 11) {
+            window.nama = nama;
+            await swals.fire('Hai, ' + nama + ' cantik 🍬');
+            await swals.fire('Cie yang hari ini ultah 😊');
+            await swals.fire('Selamat ulang tahun!');
+            await swals.fire('Panjang umur & sehat selalu ❤️');
+            document.querySelector('.catatan').style.display = 'block'; // Menampilkan teks catatan setelah dialog selesai
+            pilihwarna();
+        } else {
+            await swals.fire('Ups!', 'Nama tidak boleh kosong atau lebih dari 10 karakter.');
+            mulai();
+        }
+    }
+
+    mulai();
+</script>
+<!-- Di bawah ini JANGAN DIEDIT SEMBARANGAN -->
+<script>
+    function tombol() {
+        document.getElementById('tombWA').style.visibility = "visible";
+        document.getElementById('tombWA').style.opacity = "1";
+    }
+
+    async function expl() {
+        document.getElementById('fotoloveu').style.opacity = "1";
+        setTimeout(duar, 200);
+    }
+
+    async function duar() {
+        var e1 = document.getElementById('animasi');
+        e1.classList.add("degdeg");
+        document.getElementById('konten').style.top = "0";
+        document.getElementById('koteks').style.opacity = "1";
+        setTimeout(tombol, 4000);
+        setInterval(createHeart, 200);
+    }
+
+    const body = document.querySelector("body");
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "fas fa-heart";
+        heart.style.left = (Math.random() * 90) + "vw";
+        heart.style.animationDuration = (Math.random() * 3) + 2 + "s";
+        body.appendChild(heart);
+    }
+
+    setInterval(function name(params) {
+        var heartArr = document.querySelectorAll(".fa-heart");
+        if (heartArr.length > 100) {
+            heartArr[0].remove();
+        }
+    }, 100);
+
+    function StartMarquee() {
+        var marquee = document.getElementById("marq");
+        marquee.start();
+    }
+
+    function StopMarquee() {
+        var marquee = document.getElementById("marq");
+        marquee.stop();
+    }
+
+    StopMarquee();
+
+    async function pilihwarna() {
+        var {isConfirmed: warna} = await swals.fire({
+            title: 'Oh iya, ' + window.nama + ' mau pilih warna apa nih?',
+            text: 'Ayo, jangan ragu-ragu ☺️',
+            showCancelButton: true,
+            confirmButtonText: 'Biru',
+            cancelButtonText: 'Merah',
+        });
+
+        if (warna) {
+            await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Biru</b> berarti harus traktirin gw ya 😉!');
+            expl();
+            StartMarquee();
+        } else {
+            await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Merah</b> berarti harus sayang terus sama aku ya 😉!');
+            expl();
+            StartMarquee();
+        }
+    }
+</script>
+</body>
+</html>
